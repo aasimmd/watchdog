@@ -5,5 +5,5 @@ The program can monitor moving, creation, modification and deleteion of files an
 It additionally adds .bat files in a particular windows directory so that the program runs on every startup.
   
 ## References
-> https://pypi.org/project/watchdog/
-> https://thepythoncorner.com/posts/2019-01-13-how-to-create-a-watchdog-in-python-to-look-for-filesystem-changes/
+* https://pypi.org/project/watchdog/
+* https://thepythoncorner.com/posts/2019-01-13-how-to-create-a-watchdog-in-python-to-look-for-filesystem-changes/
