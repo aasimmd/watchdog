@@ -1,10 +1,11 @@
 ,FileName,CreatedTime,ModifiedTime,FileLocation,Event
-0,no.txt,35:26.9,35:26.9,F:/temp/dir,moved from New Text Document.txt to no.txt
-1,no.txt,35:31.2,35:31.2,F:/temp/dir,modified
-2,yes.txt,35:42.5,35:42.5,F:/temp/dir,deleted
-3,no.txt,38:29.4,38:29.4,F:/temp/dir,modified
-4,no.txt,2022-05-09 16:50:46.946787,2022-05-09 16:50:46.946787,F:/temp/dir,modified
-5,no.txt,2022-05-09 16:50:52.650966,2022-05-09 16:50:52.650966,F:/temp/dir,modified
-6,New folder\New Text Document.txt,2022-05-09 16:51:27.988051,2022-05-09 16:51:27.988051,F:/temp/dir,created
-7,New folder,2022-05-09 16:51:27.994057,2022-05-09 16:51:27.994057,F:/temp/dir,modified
-8,New folder\New Text Document.txt,2022-05-09 16:51:41.039902,2022-05-09 16:51:41.039902,F:/temp/dir,modified
+0,F:/temp/dir\this.txt,2022-05-09 17:44:46.647039,2022-05-09 17:44:46.647039,F:/temp/dir,modified
+1,F:/temp/dir\this.txt,2022-05-09 17:44:46.647039,2022-05-09 17:47:16.015230,F:/temp/dir,modified
+2,F:/temp/dir\this.txt,2022-05-09 17:44:46.647039,2022-05-09 17:47:18.089112,F:/temp/dir,modified
+3,this.txt,2022-05-09 17:50:47.356203,2022-05-09 17:50:47.357204,F:/temp/dir,modified
+4,New folder,2022-05-09 17:51:02.084079,2022-05-09 17:51:02.084079,F:/temp/dir,created
+5,New folder\New Text Document.txt,2022-05-09 17:51:09.090945,2022-05-09 17:51:09.090945,F:/temp/dir,created
+6,New folder,2022-05-09 17:51:09.097951,2022-05-09 17:51:09.097951,F:/temp/dir,modified
+7,New folder\this.txt,2022-05-09 17:51:10.561281,2022-05-09 17:51:10.561281,F:/temp/dir,moved from New folder\New Text Document.txt to New folder\this.txt
+8,New folder,2022-05-09 17:51:10.564283,2022-05-09 17:51:10.564283,F:/temp/dir,modified
+9,this.txt,2022-05-09 17:54:03.833165,2022-05-09 17:54:03.833165,F:/temp/dir\New folder,modified
