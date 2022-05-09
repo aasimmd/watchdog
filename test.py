@@ -1,9 +1,21 @@
 from time import sleep
 from datetime import datetime
 import pandas as pd
+from getpass import getuser
 
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
+
+def autostart():
+    script = 'py '+__file__
+    bg_script = 'START /MIN /B CMD.EXE /C watchdog.bat'
+    username = getuser()
+    bg_bat_path = bat_path = f'C:\\Users\\{username}\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\bg.bat'
+    bat_path = f'C:\\Users\\{username}\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\watchdog.bat'
+    f = open(bg_bat_path, 'w+')
+    f.write(bg_script)
+    f = open(bat_path, 'w+')
+    f.write(script)
 
 
 def autofill():
@@ -23,7 +35,10 @@ class Handler(FileSystemEventHandler):
     @staticmethod
     def on_created(event):
         print(f"{event.src_path} created")
-        filename = event.src_path[index:]
+        fpath = event.src_path
+        index = fpath.rfind("\\")
+        filename = fpath[index+1:]
+        path = fpath[:index]
         created_time = datetime.now()
         modified_time = datetime.now()
         logdf.loc[len(logdf.index)] = [filename, created_time, modified_time, path, "created"]
@@ -31,7 +46,10 @@ class Handler(FileSystemEventHandler):
     @staticmethod
     def on_deleted(event):
         print(f"deleted {event.src_path}!")
-        filename = event.src_path[index:]
+        fpath = event.src_path
+        index = fpath.rfind("\\")
+        filename = fpath[index+1:]
+        path = fpath[:index]
         try:
             created_time = logdf.loc[logdf['FileName'] == filename]['CreatedTime'][0]
         except:
@@ -57,7 +75,10 @@ class Handler(FileSystemEventHandler):
     @staticmethod
     def on_moved(event):
         print(f"moved {event.src_path} to {event.dest_path}")
-        filename = event.dest_path[index:]
+        fpath = event.src_path
+        index = fpath.rfind("\\")
+        filename = fpath[index+1:]
+        path = fpath[:index]
         try:
             created_time = logdf.loc[logdf['FileName'] == filename]['CreatedTime'][0]
         except:
@@ -65,11 +86,12 @@ class Handler(FileSystemEventHandler):
         modified_time = datetime.now()
         logdf.loc[len(logdf.index)] = [filename, created_time, modified_time, path, f"moved from {event.src_path[index:]} to {event.dest_path[index:]}"]
         
+autostart()
 autofill()
 logdf = pd.read_csv('log.csv', index_col=0)
-print(logdf)
+# print(logdf)
+
 path="F:/temp/dir"
-index = len(path)+1
 event_handler = Handler()
 observer = Observer()
 observer.schedule(event_handler, path, recursive=True)
